@@ -37,7 +37,7 @@ namespace BypassAuthorization.XUnitTest
 
             var result = JsonConvert.DeserializeObject<WeatherForecast[]>(stringResponse);
 
-            Assert.Equal(result.Length, 5);
+            Assert.Equal(5, result.Length);
         }
     }
 
@@ -45,7 +45,7 @@ namespace BypassAuthorization.XUnitTest
     {
         public virtual async Task<AuthenticateResult> AuthenticateAsync(AuthorizationPolicy policy, HttpContext context)
         {
-            var testScheme = "FakeScheme";
+            const string testScheme = "FakeScheme";
             var principal = new ClaimsPrincipal();
             principal.AddIdentity(new ClaimsIdentity(new[] {
                 new Claim("Permission", "CanViewPage"),
