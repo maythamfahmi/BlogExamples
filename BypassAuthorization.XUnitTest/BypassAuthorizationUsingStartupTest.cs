@@ -1,29 +1,19 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using BypassAuthorization.WebApi;
-using BypassAuthorization.WebApi.Testing;
-using Microsoft.AspNetCore.Authorization.Policy;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Xunit;
 
 namespace BypassAuthorization.XUnitTest
 {
-    public class BypassAuthorizationTest : IClassFixture<WebApplicationFactory<Startup>>
+    public class BypassAuthorizationUsingStartupTest : IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly HttpClient _client;
 
-        public BypassAuthorizationTest(WebApplicationFactory<Startup> factory)
+        public BypassAuthorizationUsingStartupTest(WebApplicationFactory<Startup> factory)
         {
-            _client = factory.WithWebHostBuilder(builder =>
-            {
-                builder.ConfigureTestServices(services =>
-                {
-                    services.AddSingleton<IPolicyEvaluator, FakePolicyEvaluator>();
-                });
-            }).CreateClient();
+            _client = factory.CreateClient();
         }
 
         [Fact]
