@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PdfInvoiceGenerator", "PdfI
 		PdfGenerator\PdfGenerator.csproj = PdfGenerator\PdfGenerator.csproj
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WcfService", "WcfService", "{10151A71-F97C-40C3-9443-491BC2B02093}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{2EB82741-A718-4373-AA2D-2414E5CFA05F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,10 @@ Global
 		{518AF9BB-FFA1-443B-AC2E-6732E9DE915A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{518AF9BB-FFA1-443B-AC2E-6732E9DE915A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518AF9BB-FFA1-443B-AC2E-6732E9DE915A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB82741-A718-4373-AA2D-2414E5CFA05F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB82741-A718-4373-AA2D-2414E5CFA05F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB82741-A718-4373-AA2D-2414E5CFA05F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB82741-A718-4373-AA2D-2414E5CFA05F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +52,7 @@ Global
 		{D6847880-AF5A-4D50-8DC1-F4F3A3067AAA} = {7F7C0BEE-5AF8-49C0-9855-10BA99BC5A78}
 		{54CC3D8D-AA75-471E-8EA6-D5393F8986AA} = {7F7C0BEE-5AF8-49C0-9855-10BA99BC5A78}
 		{518AF9BB-FFA1-443B-AC2E-6732E9DE915A} = {36A61082-1A89-4492-BE74-528F755DAF4F}
+		{2EB82741-A718-4373-AA2D-2414E5CFA05F} = {10151A71-F97C-40C3-9443-491BC2B02093}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E49E39D3-FCD8-48DA-9BFC-785CC5168A57}
