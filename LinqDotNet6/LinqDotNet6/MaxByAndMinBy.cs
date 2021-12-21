@@ -11,6 +11,18 @@
                 new ("Mick", 2, 96)
             };
 
+            //before dotnet 6
+            var highestPointOld = gameWinners
+                .OrderByDescending(e => e.Point).FirstOrDefault();
+
+            var lowestPointOld = gameWinners
+                .OrderBy(e => e.Point)
+                .FirstOrDefault();
+
+            Console.WriteLine($"{highestPointOld?.Name} has highest point {highestPointOld?.Point}");
+            Console.WriteLine($"{lowestPointOld?.Name} has highest point {lowestPointOld?.Point}");
+
+            //with dotnet 6
             var highestPoint = gameWinners.MaxBy(e => e.Point);
             var lowestPoint = gameWinners.MinBy(e => e.Point);
 
