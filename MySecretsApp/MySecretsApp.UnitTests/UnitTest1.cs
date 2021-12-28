@@ -11,7 +11,7 @@ namespace MySecretsApp.UnitTests
         public Tests()
         {
             _config = new ConfigurationBuilder()
-                .AddUserSecrets<Tests>()
+                .AddUserSecrets<Tests>(true)
                 .Build();
         }
 
