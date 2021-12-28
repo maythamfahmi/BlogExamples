@@ -25,7 +25,7 @@ namespace MySecretsApp.UnitTests
         {
             string apiKey = _config["apikey"];
 
-            Assert.AreEqual("de7fb477-2cce-4888-a63a-7196f55e3568", apiKey)
+            Assert.AreEqual("de7fb477-2cce-4888-a63a-7196f55e3568", apiKey);
         }
     }
 }
