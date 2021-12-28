@@ -18,10 +18,13 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore MySecretsApp/*.csproj
+      run: dotnet restore
+      working-directory: MySecretsApp
     - name: Build
-      run: dotnet build MySecretsApp/*.csproj --no-restore
+      run: dotnet build --no-restore
+      working-directory: MySecretsApp
     - name: Test
       env:
         apikey: ${{ secrets.APIKEY }}
-      run: dotnet test MySecretsApp/*.csproj --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal
+      working-directory: MySecretsApp
