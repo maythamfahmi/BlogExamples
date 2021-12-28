@@ -17,13 +17,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
+    - run: 'echo "$apikey" > key'
+      shell: bash
       env:
         apikey: ${{ secrets.APIKEY }}
-      run: |
-        echo ${apikey}
-        dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
