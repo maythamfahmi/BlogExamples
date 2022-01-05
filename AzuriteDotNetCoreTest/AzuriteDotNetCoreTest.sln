@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobStorageApp", "AzureBlobStorageApp\AzureBlobStorageApp.csproj", "{7E341EFC-8914-4030-BBD9-CCC5A667CF40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobStorageApp.UnitTests", "AzureBlobStorageApp.UnitTests\AzureBlobStorageApp.UnitTests.csproj", "{CB774656-C15A-4953-A8A5-E408E624561E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github-actions", "github-actions", "{01730832-440B-4984-B368-9687A02C4568}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E341EFC-8914-4030-BBD9-CCC5A667CF40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E341EFC-8914-4030-BBD9-CCC5A667CF40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E341EFC-8914-4030-BBD9-CCC5A667CF40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E341EFC-8914-4030-BBD9-CCC5A667CF40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB774656-C15A-4953-A8A5-E408E624561E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB774656-C15A-4953-A8A5-E408E624561E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB774656-C15A-4953-A8A5-E408E624561E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB774656-C15A-4953-A8A5-E408E624561E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36D62CBD-ADAD-4D5A-A762-836F3A3D479F}
+	EndGlobalSection
+EndGlobal
