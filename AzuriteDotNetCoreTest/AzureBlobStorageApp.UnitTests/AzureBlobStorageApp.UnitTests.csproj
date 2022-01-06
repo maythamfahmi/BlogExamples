@@ -8,15 +8,11 @@
     <UserSecretsId>0fc7a484-d564-400b-b11e-87a90c82576a</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
-    <PackageReference Include="Docker.DotNet" Version="3.125.5" />
+<ItemGroup>
+<PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
+<PackageReference Include="Docker.DotNet" Version="3.125.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
-    
-    <!--<PackageReference Include="NUnit" Version="3.13.2" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
-    <PackageReference Include="coverlet.collector" Version="3.1.0" />-->
     
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.console" Version="2.4.1" />

@@ -25,7 +25,7 @@ public class AzureBlobStorageUnitTests
 
     //https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
 
-    [Fact/*(Skip = "Works only on local environment")*/]
+    [Fact(Skip = "Works only on local environment")]
     public async Task AzureBlobStorageTest()
     {
         // Arrange
