@@ -10,6 +10,7 @@ namespace Server
     //https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2?view=net-6.0
     //https://docs.microsoft.com/en-us/dotnet/api/system.net.security.sslstream?view=net-6.0
     //https://www.a10networks.com/blog/key-differences-between-tls-1-2-and-tls-1-3/
+    //https://paulstovell.com/x509certificate2/
     public sealed class SslTcpServer
     {
         public static void RunServer(X509Certificate? serverCertificate)
