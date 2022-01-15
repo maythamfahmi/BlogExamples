@@ -1,7 +1,0 @@
-word;title;https://www.edc.dk
-test;test-title;https://www.edc.dk
-edc;hjemmeside;https://www.edc.dk
-kontakt os;Kontakt EDC mæglerne;https://www.edc.dk/om-edc/kontakt-os
-kontakt os;Kontakt EDC mæglerne;https://www.edc.dk/om-edc/kontakt-os
-Andre henvendelser;Kontakt EDC mæglerne;https://www.edc.dk/om-edc/kontakt-os
-Kædekontor;Kontakt EDC mæglerne;https://www.edc.dk/om-edc/kontakt-os
