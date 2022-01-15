@@ -1,0 +1,12 @@
+*PAGE:https://aaa.aaa.aa
+AAAAAA
+aaaaaaa
+aaaaaaa
+*PAGE:https://bbb.bbb.bb
+BBBBBB
+bbbbbbb
+bbbbbbb
+*PAGE:https://ccc.ccc.cc
+CCCCCC
+ccccccc
+ccccccc
