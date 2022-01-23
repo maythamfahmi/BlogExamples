@@ -6,7 +6,7 @@ using Xunit;
 
 namespace AzureBlobStorageApp.UnitTests;
 
-public class AzureBlobStorageWithDockerAutomationUnitTests : IAsyncLifetime
+public class AzureBlobStorageIntegrationTests : IAsyncLifetime
 {
     private const string Content = "Some Data inside file Content";
 
@@ -21,13 +21,13 @@ public class AzureBlobStorageWithDockerAutomationUnitTests : IAsyncLifetime
     private AzureBlobStorage? _azureBlobStorage;
 
     private readonly DockerClient _client;
-    private readonly Task<CreateContainerResponse> _response;
+    private readonly Task<ContainerResponse> _response;
     private string _id = string.Empty;
 
-    public AzureBlobStorageWithDockerAutomationUnitTests()
+    public AzureBlobStorageIntegrationTests()
     {
         var builder = new ConfigurationBuilder()
-            .AddUserSecrets<AzureBlobStorageWithDockerAutomationUnitTests>(true);
+            .AddUserSecrets<AzureBlobStorageIntegrationTests>(true);
 
         IConfiguration configuration = builder.Build();
 
@@ -47,12 +47,20 @@ public class AzureBlobStorageWithDockerAutomationUnitTests : IAsyncLifetime
 
         // Act
         var readTextFile = await _azureBlobStorage.ReadTextFile("file.txt");
+        var filesCount = _azureBlobStorage.NumberOfBlobs();
 
         // Assert
         Assert.Equal(Content, readTextFile);
+        Assert.Equal(1, filesCount);
 
-        // Finalizing
+        // Finalizing Act
         await _azureBlobStorage.DeleteTextFile("file.txt");
+        var readTextFileAfterDelete = await _azureBlobStorage.ReadTextFile("file.txt");
+        var filesCountAfterDelete = _azureBlobStorage.NumberOfBlobs();
+        
+        // Finalizing Assert
+        Assert.Equal(string.Empty, readTextFileAfterDelete);
+        Assert.Equal(0, filesCountAfterDelete);
     }
 
     /// <summary>
@@ -64,7 +72,7 @@ public class AzureBlobStorageWithDockerAutomationUnitTests : IAsyncLifetime
         if (string.IsNullOrEmpty(_id))
         {
             var resp = await _response;
-            _id = resp.ID;
+            _id = resp.Id;
         }
 
         await _client.Containers.StartContainerAsync(_id, null);

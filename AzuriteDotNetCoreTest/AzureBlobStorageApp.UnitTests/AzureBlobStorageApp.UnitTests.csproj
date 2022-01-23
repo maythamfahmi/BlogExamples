@@ -1,33 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <UserSecretsId>0fc7a484-d564-400b-b11e-87a90c82576a</UserSecretsId>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UserSecretsId>0fc7a484-d564-400b-b11e-87a90c82576a</UserSecretsId>
+    </PropertyGroup>
 
-<ItemGroup>
-<PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
-<PackageReference Include="Docker.DotNet" Version="3.125.5" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
-    
-    <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.console" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.console" Version="2.4.1">
-	    <PrivateAssets>all</PrivateAssets>
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	    <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
+        <PackageReference Include="Docker.DotNet" Version="3.125.5" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+        <PackageReference Include="Moq" Version="4.16.1" />
 
-  <ItemGroup>
-    <ProjectReference Include="..\AzureBlobStorageApp\AzureBlobStorageApp.csproj" />
-  </ItemGroup>
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.console" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.console" Version="2.4.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AzureBlobStorageApp\AzureBlobStorageApp.csproj" />
+    </ItemGroup>
 
 </Project>

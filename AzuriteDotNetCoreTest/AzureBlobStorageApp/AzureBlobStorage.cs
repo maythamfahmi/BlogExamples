@@ -2,7 +2,7 @@
 
 namespace AzureBlobStorageApp;
 
-public class AzureBlobStorage
+public class AzureBlobStorage : IAzureBlobStorage
 {
 
     private readonly BlobContainerClient _blobContainerClient;
@@ -16,7 +16,7 @@ public class AzureBlobStorage
     public async Task<string> ReadTextFile(string filename)
     {
         var blob = _blobContainerClient.GetBlobClient(filename);
-        if (!await _blobContainerClient.ExistsAsync()) return string.Empty;
+        if (!await _blobContainerClient.ExistsAsync() || !await blob.ExistsAsync()) return string.Empty;
         var reading = await blob.DownloadStreamingAsync();
         StreamReader reader = new StreamReader(reading.Value.Content);
         return await reader.ReadToEndAsync();
@@ -33,6 +33,12 @@ public class AzureBlobStorage
     {
         var blobClient = _blobContainerClient.GetBlobClient(filename);
         await blobClient.DeleteAsync();
+    }
+
+    public int NumberOfBlobs()
+    {
+        var blobClient = _blobContainerClient.GetBlobs();
+        return blobClient.Count();
     }
 
 }
