@@ -1,25 +1,23 @@
-﻿namespace SE1_done
+﻿namespace SE2_done
 {
-    public class Program
+    public class SearchService
     {
-        private List<SearchData> _searchContent;
+        private ILookup<string, SearchData> _searchContent;
 
         public static void Main(string[] args)
         {
-            Run();
+            var program = new SearchService("./data/search-data-L.txt");
+            program.UserInput();
         }
 
-        public static void Run()
+        public SearchService(string path)
         {
-            var program = new Program();
-            string folder = $"./data/search-data-L.txt";
-            program.CreateDataStructure(folder);
-            program.UserInput();
+            CreateDataStructure(path);
         }
 
         public void CreateDataStructure(string path)
         {
-            _searchContent = new List<SearchData>();
+            var searchContent = new List<SearchData>();
 
             string page = null;
             string title = null;
@@ -47,9 +45,11 @@
                     searchData.Title = title;
                     searchData.Word = line.Trim();
 
-                    _searchContent.Add(searchData);
+                    searchContent.Add(searchData);
                 }
             }
+
+            _searchContent = searchContent.ToLookup(x => x.Word, x => x);
         }
 
         public void UserInput()
@@ -72,17 +72,8 @@
 
         public List<SearchData> FindWord(string word)
         {
-            List<SearchData> list = new List<SearchData>();
-
-            foreach (var searchData in _searchContent)
-            {
-                if (string.Equals(searchData.Word, word, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    list.Add(searchData);
-                }
-            }
-
-            return list;
+            IGrouping<string, SearchData> result = _searchContent.FirstOrDefault(e => e.Key.ToLower() == word.ToLower());
+            return result?.ToList();
         }
     }
 

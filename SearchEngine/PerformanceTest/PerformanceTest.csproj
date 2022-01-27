@@ -12,9 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Part1\SE1-done.csproj" />
-      <ProjectReference Include="..\Part2\SE2-done.csproj" />
-      <ProjectReference Include="..\Part3\SE3-done.csproj" />
+        <ProjectReference Include="..\Part1\SE1-done.csproj" />
+        <ProjectReference Include="..\Part2\SE2-done.csproj" />
+        <ProjectReference Include="..\Part3\SE3-done.csproj" />
     </ItemGroup>
 
 </Project>

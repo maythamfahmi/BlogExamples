@@ -7,21 +7,18 @@
 
         public static void Main(string[] args)
         {
-            Run();
-        }
-
-        private static void Run()
-        {
-            var program = new SearchService();
+            var program = new SearchService("./data/search-data-L.txt");
             program._levenshtein = new Levenshtein(program._searchIndex.DataSet);
             program.UserInput();
         }
 
-        public SearchService()
+        public SearchService(string path)
         {
-            string folder = $"./data/search-data-L.txt";
-            CreateDataStructure(folder);
-            _levenshtein = new Levenshtein(_searchIndex.DataSet);
+            CreateDataStructure(path);
+            if (_searchIndex != null)
+            {
+                _levenshtein = new Levenshtein(_searchIndex.DataSet);
+            }
         }
 
         public void CreateDataStructure(string path)
