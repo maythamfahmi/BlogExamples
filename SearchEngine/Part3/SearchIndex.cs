@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SE3_done
+﻿namespace SE3_done
 {
     public class SearchIndex
     {

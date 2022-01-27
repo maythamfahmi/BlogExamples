@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-namespace SE1_done
+﻿namespace SE1_done
 {
     public class Program
     {
-        List<SearchData> _searchContent;
+        private List<SearchData> _searchContent;
 
         public static void Main(string[] args)
         {
+            Run();
+        }
+
+        public static void Run()
+        {
             var program = new Program();
-
-            string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo solutionPath = Directory.GetParent(currentDirectory).Parent;
-            string root = solutionPath?.Parent?.Parent?.Parent?.FullName;
-            string folder = $"{root}\\data\\search-data-base.txt";
-
+            string folder = $"./data/search-data-L.txt";
             program.CreateDataStructure(folder);
-
             program.UserInput();
         }
 
-        private void CreateDataStructure(string path)
+        public void CreateDataStructure(string path)
         {
             _searchContent = new List<SearchData>();
 

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SE3_done
+﻿namespace SE3_done
 {
     public class Levenshtein
     {

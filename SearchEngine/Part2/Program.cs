@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace SE2_done
+﻿namespace SE2_done
 {
     public class Program
     {
         private ILookup<string, SearchData> _searchContent;
+
         public static void Main(string[] args)
         {
+            Run();
+        }
+
+        public static void Run()
+        {
             var program = new Program();
-
-            string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo solutionPath = Directory.GetParent(currentDirectory).Parent;
-            string root = solutionPath?.Parent?.Parent?.Parent?.FullName;
-            string folder = $"{root}\\data\\search-data-L.txt";
-
+            string folder = $"./data/search-data-L.txt";
             program.CreateDataStructure(folder);
-
             program.UserInput();
         }
 
-        private void CreateDataStructure(string path)
+        public void CreateDataStructure(string path)
         {
             var searchContent = new List<SearchData>();
 

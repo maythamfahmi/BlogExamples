@@ -1,37 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace SE3_done
+﻿namespace SE3_done
 {
     public class SearchService : ISearchService
     {
         private SearchIndex _searchIndex;
         private Levenshtein _levenshtein;
-        private readonly string _path;
 
-        private static void Main()
+        public static void Main(string[] args)
         {
-            string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo solutionPath = Directory.GetParent(currentDirectory).Parent;
-            string root = solutionPath?.Parent?.Parent?.Parent?.FullName;
-            string folder = $"{root}\\data\\search-data-S.txt";
+            Run();
+        }
 
-            var program = new SearchService(folder);
-            program.CreateDataStructure();
+        private static void Run()
+        {
+            var program = new SearchService();
             program._levenshtein = new Levenshtein(program._searchIndex.DataSet);
             program.UserInput();
         }
 
-        public SearchService(string path)
+        public SearchService()
         {
-            _path = path;
-            CreateDataStructure();
+            string folder = $"./data/search-data-L.txt";
+            CreateDataStructure(folder);
             _levenshtein = new Levenshtein(_searchIndex.DataSet);
         }
 
-        private void CreateDataStructure()
+        public void CreateDataStructure(string path)
         {
             _searchIndex = new SearchIndex();
 
@@ -40,7 +33,7 @@ namespace SE3_done
             string page = null;
             string title = null;
 
-            foreach (var line in File.ReadLines(_path))
+            foreach (var line in File.ReadLines(path))
             {
                 SearchData searchData = new SearchData();
 
@@ -81,7 +74,7 @@ namespace SE3_done
             _searchIndex.SearchContent = search.ToLookup(x => x.Word, x => x);
         }
 
-        public IEnumerable<SearchData> Find(string input)
+        public IEnumerable<SearchData> FindWord(string input)
         {
             var searchData = new List<SearchData>();
 
@@ -144,6 +137,6 @@ namespace SE3_done
 
     public interface ISearchService
     {
-        IEnumerable<SearchData> Find(string input);
+        IEnumerable<SearchData> FindWord(string input);
     }
 }
