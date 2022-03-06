@@ -19,8 +19,8 @@
         {
             var searchContent = new List<SearchData>();
 
-            string page = null;
-            string title = null;
+            string? page = null;
+            string? title = null;
 
             foreach (var line in File.ReadLines(path))
             {
@@ -54,25 +54,24 @@
 
         public void UserInput()
         {
-            string word = null;
+            string? word = null;
             while (word != "exit")
             {
                 Console.Write("Enter a word to search: ");
 
                 word = Console.ReadLine();
-                List<SearchData> searchData = FindWord(word);
+                List<SearchData>? searchData = FindWord(word);
+                if (searchData == null) continue;
                 foreach (var data in searchData)
                 {
-                    Console.WriteLine(data != null
-                        ? $"{data.Word} found with title {data.Title} with url {data.Url}"
-                        : "word not found");
+                    Console.WriteLine($"{data.Word} found with title {data.Title} with url {data.Url}");
                 }
             }
         }
 
-        public List<SearchData> FindWord(string word)
+        public List<SearchData>? FindWord(string? word)
         {
-            IGrouping<string, SearchData> result = _searchContent.FirstOrDefault(e => e.Key.ToLower() == word.ToLower());
+            IGrouping<string, SearchData>? result = _searchContent.FirstOrDefault(e => string.Equals(e.Key, word, StringComparison.CurrentCultureIgnoreCase));
             return result?.ToList();
         }
     }
