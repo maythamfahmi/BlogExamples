@@ -1,0 +1,18 @@
+﻿<Window x:Class="ContentDialogWpf.ContentDialog"
+        xmlns:local="clr-namespace:ContentDialogWpf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Title="ContentDialog" 
+        av:DesignWidth="600" 
+        av:DesignHeight="200"
+        >
+    <Grid>
+        <TextBlock x:Name="Title" Margin="30,22,30,118" TextWrapping="Wrap" Text="Title" FontSize="28"/>
+        <TextBlock x:Name="Message" Margin="30,70,30,70" TextWrapping="Wrap" Text="Content" FontSize="16"/>
+        <Button x:Name="Button" Click="CloseButton_Click" Content="Close" HorizontalAlignment="Right" Margin="0,0,30,20" VerticalAlignment="Bottom" Width="75" Background="#FF0066CC" BorderBrush="White" Foreground="White" Padding="8,4"/>
+    </Grid>
+</Window>
