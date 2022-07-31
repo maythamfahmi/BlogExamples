@@ -1,0 +1,21 @@
+parameters:
+  templateLevel: ''
+  vmImage: ''
+  message: ''
+
+jobs:
+- deployment: NestedDeploymentJob
+  displayName: 'Nested Deployment Job on ${{ parameters.vmImage }}'
+
+  pool:
+    vmImage: '${{ parameters.vmImage }}'
+
+  environment: release-with-${{ parameters.templateLevel }}-template
+
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - template: 'template-steps-release.yaml'
+          parameters:
+            message: '${{ parameters.message }}'

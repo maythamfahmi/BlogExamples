@@ -1,0 +1,18 @@
+parameters:
+  vmImage: ''
+  message: ''
+
+jobs:
+- job: NestedBuildJob
+  displayName: 'Nested Build Job on ${{ parameters.vmImage }}'
+
+  pool:
+    vmImage: '${{ parameters.vmImage }}'
+
+  workspace:
+    clean: all
+
+  steps:
+  - template: 'template-steps-build.yaml'
+    parameters:
+      message: '${{ parameters.message }}'

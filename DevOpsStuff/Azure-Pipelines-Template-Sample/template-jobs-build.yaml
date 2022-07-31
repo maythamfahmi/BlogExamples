@@ -1,0 +1,22 @@
+parameters:
+  vmImage: ''
+  message: ''
+
+jobs:
+- job: TemplatedJob
+  displayName: 'Templated Job'
+
+  pool:
+    vmImage: '${{ parameters.vmImage }}'
+
+  workspace:
+    clean: all
+
+  steps:
+  - task: PowerShell@2
+    displayName: 'Echo Greeting in PowerShell'
+    inputs:
+      targetType: Inline
+      script: |
+        Write-Host "$(Greeting)"
+        Write-Host "${{ parameters.message }}"

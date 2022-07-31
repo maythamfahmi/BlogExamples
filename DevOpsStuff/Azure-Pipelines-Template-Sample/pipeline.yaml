@@ -1,0 +1,154 @@
+name: $(Version).$(rev:r)
+
+variables:
+- name: Version
+  value: '1.0.0'
+- name: Greeting
+  value: "G'day, mate"
+
+trigger:
+  branches:
+    include:
+    - master
+
+pr: none
+
+stages:
+- stage: BuildWithoutTemplate
+  displayName: 'Build without Template'
+
+  jobs:
+  - job: HostedVs2017
+    displayName: 'Hosted VS2017'
+    pool:
+      name: 'Hosted VS2017'
+    workspace:
+      clean: all
+
+    variables:
+    - name: Greeting
+      value: 'Hello World'
+
+    steps:
+    - task: PowerShell@2
+      displayName: 'Echo Greeting in PowerShell'
+      inputs:
+        targetType: Inline
+        script: 'Write-Host "$(Greeting)"'
+
+- stage: BuildWithStepsTemplate
+  displayName: 'Build with Steps Template'
+
+  jobs:
+  - job: HostedVs2017
+    displayName: 'Hosted VS2017'
+    pool:
+      name: 'Hosted VS2017'
+    workspace:
+      clean: all
+
+    variables:
+    - name: Greeting
+      value: 'Hello World'
+
+    steps:
+    - template: 'template-steps-build.yaml'
+      parameters:
+        message: 'This is from the steps template'
+
+- stage: BuildWithJobsTemplate
+  displayName: 'Build with Jobs Template'
+
+  variables:
+  - name: Greeting
+    value: 'Hello World'
+
+  jobs:
+  - template: 'template-jobs-build.yaml'
+    parameters:
+      vmImage: 'vs2017-win2016'
+      message: 'This is from the jobs template'
+
+- template: 'template-stages-build.yaml'
+  parameters:
+    vmImage: 'ubuntu-16.04'
+    message: 'This is from the stages template'
+
+- template: 'template-stages-nested-build.yaml'
+  parameters:
+    vmImage: 'macOS-10.13'
+    message: 'This is from the nested stages template'
+
+- stage: ReleaseWithoutTemplate
+  displayName: 'Release without Template'
+
+  jobs:
+  - deployment: HostedVs2017
+    displayName: 'Hosted VS2017'
+    pool:
+      name: 'Hosted VS2017'
+
+    environment: release
+
+    variables:
+    - name: Greeting
+      value: 'Hello World'
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            displayName: 'Echo Greeting in PowerShell'
+            inputs:
+              targetType: Inline
+              script: 'Write-Host "$(Greeting)"'
+
+- stage: ReleaseWithStepsTemplate
+  displayName: 'Release with Steps Template'
+
+  jobs:
+  - deployment: HostedVs2017
+    displayName: 'Hosted VS2017'
+    pool:
+      name: 'Hosted VS2017'
+
+    environment: release
+
+    variables:
+    - name: Greeting
+      value: 'Hello World'
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: 'template-steps-release.yaml'
+            parameters:
+              message: 'This is from the steps template'
+
+- stage: ReleaseWithJobsTemplate
+  displayName: 'Release with Jobs Template'
+
+  variables:
+  - name: Greeting
+    value: 'Hello World'
+
+  jobs:
+  - template: 'template-jobs-release.yaml'
+    parameters:
+      templateLevel: jobs
+      vmImage: 'vs2017-win2016'
+      message: 'This is from the jobs template'
+
+- template: 'template-stages-release.yaml'
+  parameters:
+    templateLevel: stages
+    vmImage: 'ubuntu-16.04'
+    message: 'This is from the stages template'
+
+- template: 'template-stages-nested-release.yaml'
+  parameters:
+    templateLevel: nested-stages
+    vmImage: 'macOS-10.13'
+    message: 'This is from the nested stages template'

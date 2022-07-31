@@ -1,0 +1,26 @@
+parameters:
+  templateLevel: ''
+  vmImage: ''
+  message: ''
+
+jobs:
+- deployment: TemplatedRelease
+  displayName: 'Templated Release'
+
+  pool:
+    vmImage: '${{ parameters.vmImage }}'
+
+  environment: release-with-${{ parameters.templateLevel }}-template
+
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: PowerShell@2
+          displayName: 'Echo Greeting in PowerShell'
+          inputs:
+            targetType: Inline
+            script: |
+              Write-Host "$(Greeting)"
+              Write-Host "${{ parameters.message }}"
+          

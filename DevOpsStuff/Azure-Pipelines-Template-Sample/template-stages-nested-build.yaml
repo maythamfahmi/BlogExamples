@@ -1,0 +1,13 @@
+parameters:
+  vmImage: ''
+  message: ''
+
+stages:
+- stage: BuildWithNestedStagesTemplate
+  displayName: 'Build with Nested Stages Template'
+
+  jobs:
+  - template: 'template-jobs-nested-build.yaml'
+    parameters:
+      vmImage: '${{ parameters.vmImage }}'
+      message: '${{ parameters.message }}'
