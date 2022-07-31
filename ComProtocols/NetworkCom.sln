@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketServer", "SocketServer\SocketServer.csproj", "{471B5C9A-972D-44D5-B12D-CDD90242120F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketClient", "SocketClient\SocketClient.csproj", "{53D2AAF3-6144-481F-8832-991DBFE503B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpServiceServer", "TcpServiceServer\TcpServiceServer.csproj", "{141A6E26-A737-4BE7-92EF-5141073EDDAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpServiceClient", "TcpServiceClient\TcpServiceClient.csproj", "{97831A80-F66B-47D1-98E2-12F3D1D2262B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpServiceServer", "UdpServiceServer\UdpServiceServer.csproj", "{351A34A0-5BDF-4D6C-8778-835D8936061F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpServiceClient", "UdpServiceClient\UdpServiceClient.csproj", "{10BF36D7-0E9B-465E-AD7D-8A69E02A1F6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{471B5C9A-972D-44D5-B12D-CDD90242120F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471B5C9A-972D-44D5-B12D-CDD90242120F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471B5C9A-972D-44D5-B12D-CDD90242120F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471B5C9A-972D-44D5-B12D-CDD90242120F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D2AAF3-6144-481F-8832-991DBFE503B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D2AAF3-6144-481F-8832-991DBFE503B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D2AAF3-6144-481F-8832-991DBFE503B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D2AAF3-6144-481F-8832-991DBFE503B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{141A6E26-A737-4BE7-92EF-5141073EDDAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{141A6E26-A737-4BE7-92EF-5141073EDDAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{141A6E26-A737-4BE7-92EF-5141073EDDAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{141A6E26-A737-4BE7-92EF-5141073EDDAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97831A80-F66B-47D1-98E2-12F3D1D2262B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97831A80-F66B-47D1-98E2-12F3D1D2262B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97831A80-F66B-47D1-98E2-12F3D1D2262B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97831A80-F66B-47D1-98E2-12F3D1D2262B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{351A34A0-5BDF-4D6C-8778-835D8936061F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351A34A0-5BDF-4D6C-8778-835D8936061F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351A34A0-5BDF-4D6C-8778-835D8936061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351A34A0-5BDF-4D6C-8778-835D8936061F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BF36D7-0E9B-465E-AD7D-8A69E02A1F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BF36D7-0E9B-465E-AD7D-8A69E02A1F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BF36D7-0E9B-465E-AD7D-8A69E02A1F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BF36D7-0E9B-465E-AD7D-8A69E02A1F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0B686AD-244E-4000-9BF0-8AE81C0BD858}
+	EndGlobalSection
+EndGlobal
