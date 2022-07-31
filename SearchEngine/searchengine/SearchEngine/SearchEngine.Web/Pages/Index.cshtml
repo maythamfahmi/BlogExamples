@@ -1,0 +1,80 @@
+﻿@page
+@model IndexModel
+@{ ViewData["Title"] = "Home page"; }
+
+<div class="text-center">
+    <div class="ui-widget">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <input id="tags" type="text" />
+        <button type="button">Click Me!</button>
+        <div id="suggestion" style="float: top;"></div>
+        <br />
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script>
+    async function Lookup(search) {
+        return await new window.Promise(function (resolve, reject) {
+            $.ajax({
+                url: "http://localhost:5000/lookup?lookup=" + search,
+                success: function (data) {
+                    resolve(data);
+                },
+                error: function (err) {
+                    reject(err);
+                }
+            });
+        });
+    }
+
+    $("#tags").on(('keydown keyup'),function () {
+        var search = $("#tags").val();
+
+        if (search === '') {
+            $("#suggestion").empty();
+        } else {
+            Lookup(search).then(function (data) {
+                //console.log(data);
+
+                var data1 = data;
+
+                //console.log(data1);
+
+                //var str = "";
+                //if (data.length > 0) {
+                //    data.forEach(e => {
+                //        str += e + '<br />';
+                //    });
+                //}
+                //$("#suggestion").html(str);
+
+                $("#tags").autocomplete({
+                    source: data,
+                    async: true
+                });
+
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    });
+
+    $("button").click(function () {
+        var search = $("#tags").val();
+        $.get("http://localhost:5000/search?search=" + search, function (data, status) {
+
+            $("#suggestion").empty();
+
+            var str = '';
+
+            for (var i = 0; i < data.length; i++) {
+                str += data[i].url + '<br />';
+            }
+
+            $("#searchResult").html(str);
+        });
+    });
+
+</script>

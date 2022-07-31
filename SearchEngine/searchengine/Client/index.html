@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>DaDenPhil Search Engine</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+      <!-- Custom.css -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-faded">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/rocket.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <Strong>DaDenPhil Search Engine</Strong>
+      </a>
+    </nav>
+    <!-- Content goes here! -->
+    <div class="container">
+    
+    <div class="col-md-12 col-1">
+        
+    </div>
+
+        <div class="card">
+        <div class="instructions">
+        <p><Strong>Instructions: </Strong><em><br>Use <Strong>"OR"</Strong> to seperate query. <Strong>Example:</Strong> <u>copenhagen OR japan</u>  <br> If you want to use prefix search just add <Strong> "*" </Strong> to search-query. <Strong>Example:</Strong> <u>copen*</u> </em></p>
+        
+
+        </div>
+            <div class="container text-xs-center">
+                <div class="input-group-center">
+                    <div id="content">
+                        <div class="col-md-12 col-1">
+                            <div class="col-md-8 col-1">
+                                <div class="" id="rocket">
+                                     <input class="form-control" id="searchbox" type="text" placeholder="Type your query here" />
+                                </div>   
+                            </div>                     
+                            <div class="col-md-4 col-1">
+                                <button class="btn btn-small btn-primary btn-block" id="searchbutton">DaDenPhil Search</button>
+                            </div>
+                        
+                        </div>
+                        <div class="col-md-12 col-1">
+                            <div class="resultno" id="responsesize" align="left"></div>
+                        </div>
+                        <div class="col-md-12 col-1">
+                            <div class="resultlist" id="urllist" align="left"></div>    
+                        </div>
+                        
+                        <div class="col-md-12 col-1 searchfooter">
+
+                        <hr>
+                        
+                        <div class="col-md-8 col-1">
+                            <p> Thanks for using our awesome search Engine!</p>
+                        </div>
+                        <div class="col-md-4 col-1">
+                            <a class="btn btn-danger" href="index.html" role="button">Clear Search</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="code.js"></script>
+
+    <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+</body>
+
+</html>
