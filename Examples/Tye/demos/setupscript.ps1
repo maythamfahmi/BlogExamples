@@ -8,5 +8,9 @@ az provider register --namespace Microsoft.OperationalInsights
 # create the cluster
 az aks create --resource-group rg_Tye --name Globomantics --node-count 1 --enable-addons monitoring --generate-ssh-keys
 
+# create registery
+az acr create -n containerregistry24652 -g rg_Tye --sku basic
+az aks update --resource-group rg_Tye --name Globomantics --attach-acr containerregistry24652
+
 # point the local kubectl instance to the Azure cluster
 az aks get-credentials --resource-group rg_Tye --name Globomantics
