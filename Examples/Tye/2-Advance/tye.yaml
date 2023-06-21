@@ -1,0 +1,18 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: globomantics
+services:
+- name: webapp
+  project: WebApp/WebApp.csproj
+- name: weather
+  project: Weather/Weather.csproj
+  replicas: 2
+  bindings:
+  - port: 2112
+  env:
+  - name: CertThumbprint
+    value: A123B456

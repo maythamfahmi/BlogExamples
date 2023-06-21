@@ -1,0 +1,36 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: globomantics
+services:
+- name: webapp1
+  project: WebApp1/WebApp1.csproj
+- name: weather
+  project: weather/weather.csproj
+  replicas: 2
+  bindings:
+  - port: 2112
+  env:
+  - CertThumbprint=A123B456
+- name: dbMain
+  image: chrisbbehrens/dbmain_staging
+  env:
+  - name: SA_PASSWORD
+    value: G52ndT0ur
+  - name: ACCEPT_EULA
+    value: 'Y'
+  bindings:
+  - port: 1439
+    containerPort: 1433
+    connectionString: Server=${host},${port};User Id=sa;Database=DessertStore;Password=${env:SA_PASSWORD}
+- name: redis
+  image: redis
+  bindings:
+  - port: 6379
+    connectionString: "${host}:${port}"
+- name: redis-cli
+  image: redis
+  args: "redis-cli -h redis MONITOR"

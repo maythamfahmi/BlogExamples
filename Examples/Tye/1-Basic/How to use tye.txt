@@ -1,0 +1,52 @@
+How to use tye
+
+dotnet tool search microsoft.tye --prerelease
+
+dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"
+
+tye
+
+dotnet new razor --name WebApp1
+
+tye run .\WebApp1\
+
+done, now stop it and 
+
+dotnet new sln --name Globomantics
+dotnet sln add .\WebApp1\
+dotnet sln list
+dotnet new webapi --name weather
+dotnet sln add .\weather\
+
+dotnet add .\WebApp1.csproj package Microsoft.Tye.Extensions.Config --version "0.10.0-*"
+
+
+---
+
+ Tye  dotnet tool search microsoft.tye --prerelease
+Package ID         Latest Version            Authors        Downloads      Verified
+-----------------------------------------------------------------------------------
+microsoft.tye      0.11.0-alpha.22111.1      Microsoft      128435         x
+ Tye  dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"
+You can invoke the tool using the following command: tye
+Tool 'microsoft.tye' (version '0.11.0-alpha.22111.1') was successfully installed.
+ Tye  tye
+tye:
+  Developer tools and publishing for microservices.
+
+Usage:
+  tye [options] [command]
+
+Options:
+  --no-default      Disable default options from environment variables
+  -?, -h, --help    Show help and usage information
+  --version         Show version information
+
+Commands:
+  init <path>        create a yaml manifest
+  run <path>         run the application
+  build <path>       build containers for the application
+  push <path>        build and push application containers to registry
+  deploy <path>      deploy the application
+  undeploy <path>    delete deployed application
+

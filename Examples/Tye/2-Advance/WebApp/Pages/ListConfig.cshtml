@@ -1,0 +1,11 @@
+﻿@page
+@model ListConfig
+@{
+    ViewData["Title"] = "List of Config";
+}
+
+@{
+    @Model.Config["service:weather:protocol"]
+    @Model.Config["service:weather:host"]
+    @Model.Config["service:weather:port"]
+}
